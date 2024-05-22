@@ -18,7 +18,7 @@ class FatburningActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_fatburning)
 
-        //<editor-fold desc="ПЕРЕМЕННЫЕ">
+        //<editor-fold desc="VARIABLES">
         val firstText = findViewById<TextView>(R.id.text1)
         val secondText = findViewById<TextView>(R.id.text2)
         val thirdText = findViewById<TextView>(R.id.text3)
@@ -28,6 +28,7 @@ class FatburningActivity : AppCompatActivity() {
         val startWorkout = findViewById<Button>(R.id.start_workout)
         //</editor-fold>
 
+        //<editor-fold desc="BUTTONS">
         startWorkout.setOnClickListener {
             val intent = Intent(this, FullBodyWorkoutExercisesActivity::class.java)
             intent.putExtra("type", "fatburning")
@@ -39,6 +40,7 @@ class FatburningActivity : AppCompatActivity() {
             intent.putExtra("tab", "0")
             startActivity(intent)
         }
+        //</editor-fold>
 
         //<editor-fold desc="HTML">
         firstText.text= Html.fromHtml(

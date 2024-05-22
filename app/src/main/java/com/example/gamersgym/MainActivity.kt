@@ -3,16 +3,12 @@ package com.example.gamersgym
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.widget.addTextChangedListener
 import com.example.gamersgym.databinding.ActivityMainBinding
@@ -60,7 +56,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //<editor-fold desc="ИЗМЕНЕНИЕ ТЕКСТА И ПОДСКАЗОК В СЛУЧАЕ НЕПРАВИЛЬНОГО ВВОДА">
+        //<editor-fold desc="CHANGE TEXT AND HINTS IF INPUT IS INCORRECT">
         userPassword.addTextChangedListener{
             userPassword.setTextColor(Color.BLACK)
             passHint.setText(R.string.log_pass)

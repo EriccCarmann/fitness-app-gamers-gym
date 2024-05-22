@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,10 +16,6 @@ import com.example.gamersgym.DbHelper
 import com.example.gamersgym.PremiumDescriptionActivity
 import com.example.gamersgym.R
 import java.time.LocalDate
-import java.util.Calendar
-import java.util.GregorianCalendar
-import kotlin.math.log
-
 
 class Tasks : Fragment() {
     override fun onCreateView(
@@ -37,10 +32,10 @@ class Tasks : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val db = activity?.let { DbHelper(it, null) }//ПОЛУЧЕНИЕ БД
-        val preferences = this.activity?.getSharedPreferences("MyPref", Context.MODE_PRIVATE) //ПЕРЕМЕННАЯ ДЛЯ ПОЛУЧЕНИЯ ДАННЫХ ИЗ PREFERENCES
+        val db = activity?.let { DbHelper(it, null) }
+        val preferences = this.activity?.getSharedPreferences("MyPref", Context.MODE_PRIVATE)
 
-        //<editor-fold desc="ПЕРЕМЕННЫЕ">
+        //<editor-fold desc="VARIABLES">
         val userLevel = getTextViewByTag(R.id.user_level_display)
         val neededPoints = getTextViewByTag(R.id.needed_points_user_level)
 
@@ -100,7 +95,7 @@ class Tasks : Fragment() {
             }
         }
 
-        //<editor-fold desc="ПРОВЕРКА ВЫПОЛНЕННОСТИ ЗАДАНИЯ">
+        //<editor-fold desc="CHECK IF TASK IS DONE">
         fun CheckIfTaskIsDone(isTaskDone: Int, task: LinearLayout){
             if(isTaskDone == 1){
                 task.visibility = (View.GONE)
@@ -126,7 +121,7 @@ class Tasks : Fragment() {
         CheckIfTaskIsDone(isDaysWorkingOutDone!!, daysWorkingOutTask)
         //</editor-fold>
 
-        //<editor-fold desc="НУЖНО ОЧКОВ">
+        //<editor-fold desc="CONDITION POINTS">
         val caloriesToBurnNeededPoints = getTextViewByTag(R.id.burn_cal_task_needed_points)
         val caloriesToBurn = getTextViewByTag(R.id.calories_to_burn)
         val exerToDoNeededPoints = getTextViewByTag(R.id.do_exer_needed_points)
@@ -137,14 +132,14 @@ class Tasks : Fragment() {
         val daysWorkingOut = getTextViewByTag(R.id.days_working_out)
         //</editor-fold>
 
-        //<editor-fold desc="ЕСТЬ ОЧКОВ">
+        //<editor-fold desc="CURRENTS POINTS">
         val caloriesToBurnCurrentPoints = getTextViewByTag(R.id.burn_cal_task_current_points)
         val doExerCurrentPoints = getTextViewByTag(R.id.do_exer_current_points)
         val doWorkoutsCurrentPoints= getTextViewByTag(R.id.do_workouts_current_points)
         val daysWorkingOutCurrentPoints = getTextViewByTag(R.id.days_working_out_current_points)
         //</editor-fold>
 
-        //<editor-fold desc="НАГРАДЫ">
+        //<editor-fold desc="REWARDS">
         val burnCalReward = getTextViewByTag(R.id.burn_cal_reward)
         val doExerReward = getTextViewByTag(R.id.do_exer_reward)
         val doWorkoutsReward = getTextViewByTag(R.id.do_workouts_reward)
@@ -209,7 +204,7 @@ class Tasks : Fragment() {
             }
         }
 
-        //<editor-fold desc="ПРОГРЕСС БАР">
+        //<editor-fold desc="PROGRESS BAR">
         fun CountPercenrage(current: Int, needed: Int): Int{
             return (current * 100).div(needed)
         }

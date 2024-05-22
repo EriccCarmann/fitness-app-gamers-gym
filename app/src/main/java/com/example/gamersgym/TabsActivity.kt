@@ -1,17 +1,10 @@
 package com.example.gamersgym
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
-import com.example.gamersgym.Fragments.Achievements
-import com.example.gamersgym.Fragments.Exercises
-import com.example.gamersgym.Fragments.Profile
-import com.example.gamersgym.Fragments.Tasks
-import com.example.gamersgym.Fragments.Training
 import com.google.android.material.tabs.TabLayout
-import com.example.gamersgym.MyPagerAdapter
 
 class TabsActivity : AppCompatActivity() {
 

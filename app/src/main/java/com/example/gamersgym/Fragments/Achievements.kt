@@ -2,7 +2,6 @@ package com.example.gamersgym.Fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -30,14 +29,16 @@ class Achievements : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val db = activity?.let { DbHelper(it, null) } //ПОЛУЧЕНИЕ БД
+        val db = activity?.let { DbHelper(it, null) }
+
         val preferences = this.activity?.getSharedPreferences(
             "MyPref",
             Context.MODE_PRIVATE
-        ) //ПЕРЕМЕННАЯ ДЛЯ ПОЛУЧЕНИЯ ДАННЫХ ИЗ PREFERENCES
+        )
+
         val login_user = preferences?.getString("USER_LOGIN", "")
 
-        //<editor-fold desc="УРОВЕНЬ ДОСТИЖЕНИЯ">
+        //<editor-fold desc="ACHIEVEMENT LEVEL">
         val moreWorkoutsLevel = getTextViewByTag(R.id.moreworkouts_level)
         val fatBurnerLevel = getTextViewByTag(R.id.fatburner_level)
         val startedFinishedLevel = getTextViewByTag(R.id.startedandfinished_level)
@@ -46,7 +47,7 @@ class Achievements : Fragment() {
         val wealthLevel = getTextViewByTag(R.id.wealth_level)
         //</editor-fold>
 
-        //<editor-fold desc="ТЕКУЩИЕ ОЧКИ ДОСТИЖЕНИЯ">
+        //<editor-fold desc="CURRENT ACHIEVEMENT POINTS">
         val currentWorkoutsCount = getTextViewByTag(R.id.current_workouts_count)
         val currentСalorieСount = getTextViewByTag(R.id.current_calorie_count)
         val currentTasksCount = getTextViewByTag(R.id.current_tasks_count)
@@ -55,7 +56,7 @@ class Achievements : Fragment() {
         val wealthLevelCount = getTextViewByTag(R.id.wealth_level_count)
         //</editor-fold>
 
-        //<editor-fold desc="ПРОГРЕСС БАР">
+        //<editor-fold desc="PROGRESS BAR">
         val progressBarMoreWorkouts = view.findViewById<View>(R.id.progress_bar_more_workouts) as ProgressBar
         val progressBarFatburner = view.findViewById<View>(R.id.progress_bar_fatburner) as ProgressBar
         val progressBarStartnfinish = view.findViewById<View>(R.id.progress_bar_startnfinish) as ProgressBar
@@ -64,7 +65,7 @@ class Achievements : Fragment() {
         val progressBarWealth = view.findViewById<View>(R.id.progress_bar_wealth) as ProgressBar
         //</editor-fold>
 
-        //<editor-fold desc="УСЛОВИЕ ДОСТИЖЕНИЯ">
+        //<editor-fold desc="ACHIEVEMENT CONDITION">
         val moreWorkoutsCondition = getTextViewByTag(R.id.more_workouts_condition)
         val fatBurnerCondition = getTextViewByTag(R.id.fatburner_condition)
         val startedFinishedCondition = getTextViewByTag(R.id.startnfinish_condition)
@@ -73,7 +74,7 @@ class Achievements : Fragment() {
         val wealthCondition = getTextViewByTag(R.id.wealth_condition)
         //</editor-fold>
 
-        //<editor-fold desc="ПРОГРЕСС БАР УСЛОВИЕ ДОСТИЖЕНИЯ">
+        //<editor-fold desc="PROGRESS BAR CONDITION">
         val moreWorkoutsBarValue = getTextViewByTag(R.id.needed_workouts_condition_bar_value)
         val haltConditionBarValue = getTextViewByTag(R.id.halt_condition_bar_value)
         val fatBurnerConditionBarValue = getTextViewByTag(R.id.needed_calories_condition_bar_value)
@@ -82,7 +83,7 @@ class Achievements : Fragment() {
         val wealthConditionBarValue = getTextViewByTag(R.id.wealth_condition_bar_value)
         //</editor-fold>
 
-        //<editor-fold desc="НАГРАДЫ">
+        //<editor-fold desc="REWARDS">
         val moreWorkoutsReward = getTextViewByTag(R.id.more_workouts_reward)
         val fatBurnerReward = getTextViewByTag(R.id.fat_burner_reward)
         val startAndFinishReward = getTextViewByTag(R.id.startnfinish_reward)
@@ -92,7 +93,7 @@ class Achievements : Fragment() {
         //</editor-fold>
 
         if (db != null) {
-            //<editor-fold desc="ТЕКУЩИЙ УРОВЕНЬ ДОСТИЖЕНИЯ">
+            //<editor-fold desc="CURRENT ACHIEVEMENT LEVEL">
             moreWorkoutsLevel!!.text =
                 login_user?.let { db.getCurrentAchievementLevel("MoreWorkouts", it).toString() }
 
@@ -112,7 +113,7 @@ class Achievements : Fragment() {
                 login_user?.let { db.getCurrentAchievementLevel("Wealth", it).toString() }
             //</editor-fold>
 
-            //<editor-fold desc="ТЕКУЩИЕ ОЧКИ">
+            //<editor-fold desc="CURRENT ACHIEVEMENT POINTS">
             currentWorkoutsCount!!.text =
                 login_user?.let { db.getCurrentPointsAchievement("MoreWorkouts", it).toString() }
             currentСalorieСount!!.text =
@@ -127,7 +128,7 @@ class Achievements : Fragment() {
                 login_user?.let { db.getCurrentPointsAchievement("Wealth", it).toString() }
             //</editor-fold>
 
-            //<editor-fold desc="УСЛОВИЯ ПОЛУЧЕНИЯ ДОСТИЖЕНИЯ">
+            //<editor-fold desc="ACHIEVEMENTS CONDITIONS">
             moreWorkoutsCondition!!.text = login_user?.let { db.getAchievementCondition("MoreWorkouts", it).toString() }
             moreWorkoutsBarValue!!.text = moreWorkoutsCondition.text
 
@@ -147,7 +148,7 @@ class Achievements : Fragment() {
             wealthConditionBarValue!!.text = wealthCondition.text
             //</editor-fold>
 
-            //<editor-fold desc="НАГРАДЫ">
+            //<editor-fold desc="REWARDS">
             moreWorkoutsReward!!.text = login_user?.let { db.getAchievementReward("MoreWorkouts", it).toString() }
             fatBurnerReward!!.text = login_user?.let { db.getAchievementReward("FatBurner", it).toString() }
             startAndFinishReward!!.text = login_user?.let { db.getAchievementReward("StartedAndFinished", it).toString() }
@@ -157,7 +158,7 @@ class Achievements : Fragment() {
             //</editor-fold>
         }
 
-        //<editor-fold desc="ПРОГРЕСС БАР">
+        //<editor-fold desc="PROGRESS BAR">
         fun CountPercenrage(current: Int, needed: Int): Int{
             return (current * 100).div(needed)
         }
@@ -181,7 +182,7 @@ class Achievements : Fragment() {
         )
         //</editor-fold>
 
-        //<editor-fold desc="РАЗВЕРНУТЬ ДОСТИЖЕНИЯ">
+        //<editor-fold desc="EXPAND ACHIEVEMENTS">
         val moreWorkouts = view.findViewById<View>(R.id.more_workouts) as LinearLayout
         val fatBurner = view.findViewById<View>(R.id.fat_burner) as LinearLayout
         val startedAndFinished = view.findViewById<View>(R.id.started_and_finished) as LinearLayout
