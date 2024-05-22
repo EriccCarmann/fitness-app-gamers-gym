@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">GamersGym</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="gamers_gym">Gamers Gym</string>
+    <string name="log_pass">Разрешены строчные буквы, цифры, тире и подчеркивание</string>
+    <string name="pass_not_same">Пароли не совпадают</string>
+    <string name="email_str">Разрешены строчные буквы, цифры, тире, подчеркивание и символы @ и .</string>
+    <string name="user_not_found">Пользователь не найден: </string>
+    <string name="title_activity_tabs">TabsActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

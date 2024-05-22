@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/training_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragments.Training"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50sp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:text="Тренировки"
+                android:textColor="@color/black"
+                android:layout_marginRight="10dp"
+                android:textSize="20dp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/worlouts_icon"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginTop="25sp"
+            >
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="180dp"
+                android:background="@drawable/fullbody_background"
+                android:fontFamily="@font/inter_bold"
+                android:paddingTop="10dp"
+                android:text="Тренировка на всё тело"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/fullbody_text_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_light_italic"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="15dp"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:text="Продолжительность\n"
+                    />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:textColor="@color/white"
+                    android:background="@drawable/round_corners_blue"
+                    android:id="@+id/fullbody_button"
+                    android:layout_width="325px"
+                    android:layout_height="38dp"
+                    android:textSize="13sp"
+                    android:ems="10"
+                    android:layout_gravity="center"
+                    android:text="НАЧАТЬ" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginTop="25sp"
+            >
+            <TextView
+                android:layout_width="320dp"
+                android:layout_height="180dp"
+                android:background="@drawable/fatburning_workout"
+                android:fontFamily="@font/inter_bold"
+                android:paddingTop="10dp"
+                android:text="Жиросжигающая тренировка"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/fatburning_text_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_light_italic"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="15dp"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:text="Продолжительность\n"
+                    />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:textColor="@color/white"
+                    android:background="@drawable/round_corners_blue"
+                    android:id="@+id/fatburning_button"
+                    android:layout_width="325px"
+                    android:layout_height="38dp"
+                    android:textSize="13sp"
+                    android:ems="10"
+                    android:layout_gravity="center"
+                    android:text="НАЧАТЬ" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_blur"
+    android:orientation="vertical"
+    android:paddingTop="?attr/actionBarSize"
+    tools:context=".RecoveryActivity">
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo"
+        >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/editTextText"
+        android:layout_marginBottom="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:fontFamily="@font/inter"
+        android:lineSpacingExtra="1sp"
+        android:text="Восстановление\n доступа"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <!-- ПОЧТА НАЧАЛО -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center"
+        >
+        <EditText
+            android:id="@+id/user_email_rec"
+            android:paddingLeft="15dp"
+            android:layout_width="310dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_corners"
+            android:textSize="13dp"
+            android:ems="10"
+            android:textColorHint="@color/black"
+            android:layout_gravity="center"
+            android:hint="Электронная почта"
+            android:inputType="textEmailAddress" />
+        <TextView
+            android:id="@+id/email_hint_recovery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:lineSpacingExtra="1sp"
+            android:text="Разрешены строчные буквы, цифры, тире, подчеркивание и символы @ и ."
+            android:textAlignment="textStart"
+            android:textColor="#ffff"
+            android:textSize="10sp"
+            tools:ignore="HardcodedText,SmallSp">
+        </TextView>
+    </LinearLayout>
+    <!-- ПОЧТА КОНЕЦ -->
+
+    <!-- ПАРОЛЬ НАЧАЛО -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center"
+        >
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
+            app:hintEnabled="false">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_password_rec"
+                android:paddingTop="10dp"
+                android:layout_width="310dp"
+                android:layout_height="50dp"
+                android:background="@drawable/round_corners"
+                android:ems="15"
+                android:textSize="13dp"
+                android:hint="Пароль"
+                android:textColorHint="@color/black"
+                android:inputType="textPassword"
+                >
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/pass_hint_recovery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:lineSpacingExtra="1sp"
+            android:text="Разрешены строчные буквы, цифры, тире и подчеркивание"
+            android:textAlignment="textStart"
+            android:textColor="#ffff"
+            android:textSize="10sp"
+            tools:ignore="HardcodedText,SmallSp">
+        </TextView>
+    </LinearLayout>
+    <!-- ПАРОЛЬ КОНЕЦ -->
+
+    <!-- ПОВТОРЕНИЕ ПАРОЛЯ НАЧАЛО -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center"
+        >
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/black"
+            app:hintEnabled="false">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_password_re_rec"
+                android:paddingTop="10dp"
+                android:layout_width="310dp"
+                android:layout_height="50dp"
+                android:background="@drawable/round_corners"
+                android:ems="15"
+                android:textSize="13dp"
+                android:hint="Повторите пароль"
+                android:textColorHint="@color/black"
+                android:inputType="textPassword"
+                >
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/pass_re_hint_recovery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:lineSpacingExtra="1sp"
+            android:text="Разрешены строчные буквы, цифры, тире и подчеркивание"
+            android:textAlignment="textStart"
+            android:textColor="#ffff"
+            android:textSize="10sp"
+            tools:ignore="HardcodedText,SmallSp">
+        </TextView>
+    </LinearLayout>
+    <!-- ПОВТОРЕНИЕ ПАРОЛЯ КОНЕЦ -->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:textColor="@color/white"
+        android:background="@drawable/round_corners_blue"
+        android:id="@+id/button_re"
+        android:layout_width="310dp"
+        android:layout_height="38dp"
+        android:textSize="13sp"
+        android:ems="10"
+        android:layout_gravity="center"
+        android:text="Подтвердить" />
+    <FrameLayout
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_gravity="right">
+        <ImageButton
+            android:id="@+id/link_to_auth"
+            android:src="@drawable/back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="50dp"
+            android:layout_marginRight="50dp"
+            />
+    </FrameLayout>
+</LinearLayout>

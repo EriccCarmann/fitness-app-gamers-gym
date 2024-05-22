@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_blur"
+    android:orientation="vertical"
+    android:paddingTop="?attr/actionBarSize"
+    tools:context=".BiometricsActivity">
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="20dp"
+        >
+    </ImageView>
+
+    <TextView
+        android:layout_marginBottom="70dp"
+        android:id="@+id/editTextText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="@font/inter"
+        android:lineSpacingExtra="1sp"
+        android:text="Биометрические показатели"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <!-- РОСТ НАЧАЛО -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+
+        android:layout_gravity="center"
+        >
+        <TextView
+            android:layout_width="60sp"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:text="Рост"
+            android:textColor="#ffff"
+            android:textSize="24sp">
+        </TextView>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/height_icon"
+            android:layout_marginRight="6dp"
+            />
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="43dp"
+            android:orientation="horizontal"
+            android:background="@drawable/round_corners_transparent">
+            <EditText
+                android:id="@+id/user_height"
+                android:layout_width="60dp"
+                android:paddingRight="7dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:ems="10"
+                android:hint="0"
+                android:inputType="number"
+                android:textAlignment="textEnd"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:paddingTop="9dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:ems="10"
+                android:hint="см"
+                android:textColorHint="@color/white"
+                android:textSize="18dp" />
+        </LinearLayout>>
+    </LinearLayout>
+    <!-- РОСТ КОНЕЦ -->
+    <TextView
+        android:id="@+id/height_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="@font/inter"
+        android:lineSpacingExtra="1sp"
+        android:text="Введите значение от 130 до 210"
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textSize="10sp"
+        android:layout_marginBottom="20dp"
+        tools:ignore="HardcodedText,SmallSp">
+    </TextView>
+    <!-- ВЕС НАЧАЛО -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        >
+        <TextView
+            android:layout_width="55sp"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:fontFamily="@font/inter"
+            android:text="Вес"
+            android:textColor="#ffff"
+            android:textSize="24sp">
+        </TextView>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/weight_icon"
+            android:layout_marginRight="6dp" />
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="43dp"
+            android:orientation="horizontal"
+            android:background="@drawable/round_corners_transparent">
+
+            <EditText
+                android:id="@+id/user_weight"
+                android:layout_width="60dp"
+                android:paddingRight="7dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:ems="10"
+                android:hint="0.0"
+                android:inputType="numberDecimal"
+                android:textAlignment="textEnd"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:paddingTop="9dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:ems="10"
+                android:hint="кг"
+                android:textColorHint="@color/white"
+                android:textSize="18dp" />
+        </LinearLayout>>
+    </LinearLayout>
+    <!-- ВЕС КОНЕЦ -->
+    <TextView
+        android:id="@+id/weight_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="@font/inter"
+        android:lineSpacingExtra="1sp"
+        android:text="Введите значение от 35 до 150"
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textSize="10sp"
+        android:layout_marginBottom="20dp"
+        tools:ignore="HardcodedText,SmallSp">
+    </TextView>
+    <!-- ПОЛ НАЧАЛО -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            >
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/inter"
+                android:text="Пол"
+                android:textAlignment="textEnd"
+                android:textColor="#ffff"
+                android:textSize="24sp" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/gender_icon" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <RadioButton
+                android:id="@+id/male_option"
+                android:background="@drawable/radio_selector"
+                android:button="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textColor="#ffff"
+                android:layout_marginRight="10dp"
+                android:text="М" />
+            <RadioButton
+                android:id="@+id/female_option"
+                android:background="@drawable/radio_selector"
+                android:button="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textColor="#ffff"
+                android:layout_marginLeft="10dp"
+                android:text="Ж" />
+        </RadioGroup>
+    </LinearLayout>>
+    <!-- ПОЛ КОНЕЦ -->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:textColor="@color/white"
+        android:background="@drawable/round_corners_blue"
+        android:id="@+id/button_biomerics_add"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:text="ПОДТВЕРДИТЬ"
+        android:textSize="13dp" />
+
+</LinearLayout>

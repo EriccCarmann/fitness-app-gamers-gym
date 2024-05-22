@@ -1,0 +1,1676 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profile_activity"
+    android:paddingTop="?attr/actionBarSize"
+    tools:context=".Fragments.Profile">
+    <LinearLayout
+        android:id="@+id/fragment_prof"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <!-- ПРОФИЛЬ И ИКОНКА НАЧАЛО-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="50dp"
+            android:layout_gravity="center"
+            >
+            <TextView
+                android:layout_width="105sp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:ems="10"
+                android:fontFamily="@font/inter_bold"
+                android:paddingTop="6dp"
+                android:text="Профиль"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/auth_icon"
+                />
+        </LinearLayout>
+        <!-- ПРОФИЛЬ И ИКОНКА КОНЕЦ-->
+
+        <!-- ИКОНКА, НИК, ДАТА НАЧАЛА НАЧАЛО -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            >
+            <androidx.cardview.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginRight="10dp"
+                android:elevation="12dp"
+                app:cardCornerRadius="50dp"
+                android:layout_centerHorizontal="true">
+                <ImageView
+                    android:id="@+id/user_avatar"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="centerCrop"
+                    />
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:id="@+id/this_lay"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                >
+
+                <TextView
+                    android:id="@+id/user_login_display"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="9dp"
+                    android:text="Your_login_here"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/inter_light_italic"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="9dp"
+                    android:text="Занимается с"
+                    />
+
+                <TextView
+                    android:id="@+id/start_date_display"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="#338AF3"
+                    android:text="01.01.2024"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- ИКОНКА, НИК, ДАТА НАЧАЛА КОНЕЦ -->
+
+        <!-- ТРЕКЕР НАЧАЛО -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50sp"
+            >
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/inter"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:text="Сожжено каллорий (ккал)"
+                    />
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   />
+            </LinearLayout>
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+        <!-- ТРЕКЕР КОНЕЦ -->
+
+        <!-- СТАТИСТИКА НАЧАЛО -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/inter"
+                android:text="Статистика"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="259dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:ems="10"
+                    android:fontFamily="@font/inter_light_italic"
+                    android:text="Занимается дней подряд"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/days_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="#338AF3"
+                    android:text="0"
+                    />
+            </LinearLayout>
+            <!-- ВЕС НАЧАЛО -->
+            <LinearLayout
+                android:paddingTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center"
+                >
+                <TextView
+                    android:layout_width="56sp"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:paddingTop="5dp"
+                    android:ems="10"
+                    android:fontFamily="@font/inter_light_italic"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:text="Вес">
+                </TextView>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/round_corners_blue"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/user_height"
+                            android:layout_width="105dp"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:ems="10"
+                            android:hint="0"
+                            android:paddingTop="7dp"
+                            android:paddingBottom="7dp"
+                            android:text="максимальный"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="12dp" />
+                        <TextView
+                            android:id="@+id/max_weight"
+                            android:layout_width="47dp"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:ems="10"
+                            android:text="0"
+                            android:paddingTop="7dp"
+                            android:paddingBottom="7dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="12dp" />
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:ems="10"
+                            android:text="кг"
+                            android:paddingTop="7dp"
+                            android:paddingBottom="7dp"
+                            android:textColor="@color/white"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/round_corners_blue"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="106dp"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:ems="10"
+                            android:hint="0"
+                            android:paddingTop="7dp"
+                            android:paddingBottom="7dp"
+                            android:text="минимальный"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="12dp" />
+                        <TextView
+                            android:id="@+id/min_weight"
+                            android:layout_width="47dp"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:ems="10"
+                            android:text="0"
+                            android:paddingTop="7dp"
+                            android:paddingBottom="7dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="12dp" />
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:ems="10"
+                            android:text="кг"
+                            android:paddingTop="7dp"
+                            android:paddingBottom="7dp"
+                            android:textColor="@color/white"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <!-- ВЕС КОНЕЦ -->
+            <!-- РОСТ И ВЕС НАЧАЛО-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="43dp"
+                            android:orientation="horizontal"
+                            >
+                            <TextView
+                                android:paddingTop="8.5dp"
+                                android:layout_width="42dp"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:ems="10"
+                                android:text="Рост"
+                                android:textAlignment="textEnd"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:textColor="@color/black"
+                                android:textSize="18dp" />
+                            <EditText
+                                android:id="@+id/user_height_profile_display"
+                                android:layout_width="55dp"
+                                android:paddingRight="7dp"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:ems="10"
+                                android:text="180,6"
+                                android:inputType="numberDecimal"
+                                android:textAlignment="textEnd"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+                            <TextView
+                                android:layout_width="30dp"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:paddingTop="9dp"
+                                android:text="см"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+                        </LinearLayout>>
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/edit_icon"
+                            android:layout_marginRight="6dp"
+                            />
+                    </LinearLayout>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:textColor="@color/white"
+                        android:background="@drawable/round_corners_blue"
+                        android:id="@+id/change_height_button"
+                        android:layout_height="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="12dp"
+                        android:text="Изменить"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="43dp"
+                            android:orientation="horizontal"
+                            >
+                            <TextView
+                                android:paddingTop="8.5dp"
+                                android:layout_width="42dp"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:ems="10"
+                                android:text="Вес"
+                                android:textAlignment="textEnd"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:textColor="@color/black"
+                                android:textSize="18dp" />
+                            <EditText
+                                android:id="@+id/user_weight_profile_display"
+                                android:layout_width="55dp"
+                                android:paddingRight="7dp"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:ems="10"
+                                android:text="90,5"
+                                android:inputType="numberDecimal"
+                                android:textAlignment="textEnd"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+                            <TextView
+                                android:layout_width="30dp"
+                                android:layout_height="match_parent"
+                                android:ems="10"
+                                android:paddingTop="9dp"
+                                android:text="кг"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+                        </LinearLayout>>
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/edit_icon"
+                            android:layout_marginRight="6dp"
+                            />
+                    </LinearLayout>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:textColor="@color/white"
+                        android:background="@drawable/round_corners_blue"
+                        android:id="@+id/change_weight_button"
+                        android:layout_height="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="12dp"
+                        android:text="Изменить"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+            <!-- РОСТ И ВЕС КОНЕЦ -->
+        </LinearLayout>
+        <!-- СТАТИСТИКА КОНЕЦ -->
+
+        <!-- ИМТ НАЧАЛО -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="335dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:fontFamily="@font/inter"
+                android:text="ИМТ"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <LinearLayout
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
+                <ImageView
+                    android:id="@+id/arrow_bmi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:ems="10"
+                    android:src="@drawable/arrow"
+                    />
+            </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:src="@drawable/bmi_chart"
+                />
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/bmi_display"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:textSize="20sp"
+                    android:layout_marginRight="10sp"
+                    android:text="0"
+                    />
+                <TextView
+                    android:id="@+id/bmi_text_expl"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:textSize="20sp"
+                    android:text=""
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+        <!-- ИМТ КОНЕЦ -->
+        <!-- ДОСТИЖЕНИЯ НАЧАЛО -->
+        <LinearLayout
+            android:id="@+id/achievements_view"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="40sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="Полученные достижения"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <!-- ДОСТИЖЕНИЯ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="20sp"
+                android:orientation="vertical">
+                <!-- ПЕРВОЕ ДОСТИЖЕНИЕ -->
+                <LinearLayout
+                    android:id="@+id/more_workouts"
+                    android:layout_width="match_parent"
+                    android:layout_height="260px"
+                    android:layout_marginBottom="20sp"
+                    android:background="@drawable/achievemnts_background"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="45dp"
+                                android:layout_marginRight="20dp"
+                                android:src="@drawable/more_workouts_icon" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:text="Больше тренировок"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/moreworkouts_level"
+                                        android:layout_width="20dp"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:text="1"
+                                        android:textColor="@color/black"
+                                        android:textSize="20dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:text="уровень из 8"
+                                        android:textColor="@color/black"
+                                        android:textSize="20dp" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:fontFamily="@font/inter_light_italic"
+                            android:text="За каждый уровень \n достижения"
+                            android:textColor="@color/black"
+                            android:textSize="18dp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/more_workouts_reward"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="0"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text=" очков"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="45dp"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="Выполнить тренировок "
+                                android:textColor="@color/black"
+                                android:textSize="18dp" />
+                            <TextView
+                                android:id="@+id/more_workouts_condition"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+                        <ProgressBar
+                            android:id="@+id/progress_bar_more_workouts"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="265dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="10dp"
+                            android:progress="0"
+                            android:progressBackgroundTint="#DBE3E8"
+                            android:progressDrawable="@drawable/blue_gradient" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/current_workouts_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="/"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/needed_workouts_condition_bar_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="8"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- ПЕРВОЕ ДОСТИЖЕНИЕ -->
+
+                <!-- ВТОРОЕ ДОСТИЖЕНИЕ -->
+                <LinearLayout
+                    android:id="@+id/fat_burner"
+                    android:layout_width="match_parent"
+                    android:layout_height="260px"
+                    android:layout_marginBottom="20sp"
+                    android:background="@drawable/achievemnts_background"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="45dp"
+                                android:layout_marginRight="20dp"
+                                android:src="@drawable/fat_burner" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:text="Жиросжигатель"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/fatburner_level"
+                                        android:layout_width="20dp"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:text="1"
+                                        android:textColor="@color/black"
+                                        android:textSize="20dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:text="уровень из 20"
+                                        android:textColor="@color/black"
+                                        android:textSize="20dp" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:fontFamily="@font/inter_light_italic"
+                            android:text="За каждый уровень \n достижения"
+                            android:textColor="@color/black"
+                            android:textSize="18dp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/fat_burner_reward"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="0"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text=" очков"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="45dp"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/inter_light_italic"
+                                    android:text="Сжечь "
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+                                <TextView
+                                    android:id="@+id/fatburner_condition"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/inter_light_italic"
+                                    android:text="0"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/inter_light_italic"
+                                    android:text=" каллорий"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                        <ProgressBar
+                            android:id="@+id/progress_bar_fatburner"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="265dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="10dp"
+                            android:progress="0"
+                            android:progressBackgroundTint="#DBE3E8"
+                            android:progressDrawable="@drawable/blue_gradient" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/current_calorie_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="/"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/needed_calories_condition_bar_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="8"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- ВТОРОЕ ДОСТИЖЕНИЕ -->
+
+                <!-- ТРЕТЬЕ ДОСТИЖЕНИЕ -->
+                <LinearLayout
+                    android:id="@+id/started_and_finished"
+                    android:layout_width="match_parent"
+                    android:layout_height="260px"
+                    android:layout_marginBottom="20sp"
+                    android:background="@drawable/achievemnts_background"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="45dp"
+                                android:layout_marginRight="20dp"
+                                android:src="@drawable/started_and_finished" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:text="Начал и закончил"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/startedandfinished_level"
+                                        android:layout_width="20dp"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:text="1"
+                                        android:textColor="@color/black"
+                                        android:textSize="20dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:text="уровень из 34"
+                                        android:textColor="@color/black"
+                                        android:textSize="20dp" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:fontFamily="@font/inter_light_italic"
+                            android:text="За каждый уровень \n достижения"
+                            android:textColor="@color/black"
+                            android:textSize="18dp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/startnfinish_reward"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="0"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text=" очков"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="45dp"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/inter_light_italic"
+                                    android:text="Выполнить заданий "
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+                                <TextView
+                                    android:id="@+id/startnfinish_condition"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/inter_light_italic"
+                                    android:text="0"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                        <ProgressBar
+                            android:id="@+id/progress_bar_startnfinish"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="265dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="10dp"
+                            android:progress="0"
+                            android:progressBackgroundTint="#DBE3E8"
+                            android:progressDrawable="@drawable/blue_gradient" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/current_tasks_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="/"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/needed_tasks_condition_bar_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="8"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- ТРЕТЬЕ ДОСТИЖЕНИЕ -->
+
+                <!-- ЧЕТВЕРТОЕ ДОСТИЖЕНИЕ -->
+                <LinearLayout
+                    android:id="@+id/halt"
+                    android:layout_width="match_parent"
+                    android:layout_height="260px"
+                    android:layout_marginBottom="20sp"
+                    android:background="@drawable/achievemnts_background"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="45dp"
+                                android:layout_marginRight="20dp"
+                                android:src="@drawable/halt_icon" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:text="Стооо-ять! Смииир-но!"
+                                    android:textColor="@color/black"
+                                    android:textSize="20dp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/halt_level"
+                                        android:layout_width="20dp"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:text="1"
+                                        android:textColor="@color/black"
+                                        android:textSize="20dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:text="уровень из 30"
+                                        android:textColor="@color/black"
+                                        android:textSize="20dp" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:fontFamily="@font/inter_light_italic"
+                            android:text="За каждый уровень \n достижения"
+                            android:textColor="@color/black"
+                            android:textSize="18dp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/halt_reward_display"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="0"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text=" очков"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="45dp"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="Тренироваться дней подряд "
+                                android:textColor="@color/black"
+                                android:textSize="18dp" />
+                            <TextView
+                                android:id="@+id/halt_condition"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+                        <ProgressBar
+                            android:id="@+id/progress_bar_halt"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="265dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="10dp"
+                            android:progress="0"
+                            android:progressBackgroundTint="#DBE3E8"
+                            android:progressDrawable="@drawable/blue_gradient" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/current_days_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="/"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/halt_condition_bar_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="8"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- ЧЕТВЕРТОЕ ДОСТИЖЕНИЕ -->
+
+                <!-- ПЯТОЕ ДОСТИЖЕНИЕ -->
+                <LinearLayout
+                    android:id="@+id/step_by_step"
+                    android:layout_width="match_parent"
+                    android:layout_height="260px"
+                    android:layout_marginBottom="20sp"
+                    android:background="@drawable/achievemnts_background"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="45dp"
+                                android:layout_marginRight="20dp"
+                                android:src="@drawable/step_by_step_icon" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:ems="10"
+                                    android:text="Ступенька за ступенькой"
+                                    android:textColor="@color/black"
+                                    android:textSize="19dp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/step_by_step_level"
+                                        android:layout_width="20dp"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:text="1"
+                                        android:textColor="@color/black"
+                                        android:textSize="20dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:ems="10"
+                                        android:text="уровень из 100"
+                                        android:textColor="@color/black"
+                                        android:textSize="20dp" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:fontFamily="@font/inter_light_italic"
+                            android:text="За каждый уровень \n достижения"
+                            android:textColor="@color/black"
+                            android:textSize="18dp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/step_by_step_reward_display"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="0"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text=" очков"
+                                android:textColor="#338AF3"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="45dp"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="Получить уровень "
+                                android:textColor="@color/black"
+                                android:textSize="18dp" />
+                            <TextView
+                                android:id="@+id/step_by_step_condition"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+
+                        <ProgressBar
+                            android:id="@+id/progress_bar_step_by_step"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:layout_width="265dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="10dp"
+                            android:progress="0"
+                            android:progressBackgroundTint="#DBE3E8"
+                            android:progressDrawable="@drawable/blue_gradient" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/step_by_step_level_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="0"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="/"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                            <TextView
+                                android:id="@+id/step_by_step_condition_bar_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/inter_light_italic"
+                                android:text="8"
+                                android:textColor="@color/black"
+                                android:textSize="16dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- ПЯТОЕ ДОСТИЖЕНИЕ -->
+            </LinearLayout>
+            <!-- ДОСТИЖЕНИЯ -->
+            <!-- СПЕЦИАЛЬНОЕ ДОСТИЖЕНИЕ -->
+            <LinearLayout
+                android:id="@+id/wealth"
+                android:layout_width="match_parent"
+                android:layout_height="260px"
+                android:background="@drawable/achievemnts_background"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginRight="20dp"
+                            android:src="@drawable/more_workouts_icon" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="43dp"
+                                android:ems="10"
+                                android:text="Барин изволит мышцу\nразмять!"
+                                android:textColor="@color/black"
+                                android:textSize="18dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/wealth_level"
+                                    android:layout_width="20dp"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:text="1"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="10"
+                                    android:text="уровень из 10"
+                                    android:textColor="@color/black"
+                                    android:textSize="18dp" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="45dp"
+                        android:fontFamily="@font/inter_light_italic"
+                        android:text="За каждый уровень \n достижения"
+                        android:textColor="@color/black"
+                        android:textSize="18dp" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/wealth_reward_display"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/inter_light_italic"
+                            android:text="0"
+                            android:textColor="#338AF3"
+                            android:textSize="18dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/inter_light_italic"
+                            android:text=" очков"
+                            android:textColor="#338AF3"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/inter_light_italic"
+                            android:text="Выполнить "
+                            android:textColor="@color/black"
+                            android:textSize="18dp" />
+                        <TextView
+                            android:id="@+id/wealth_condition"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/inter_light_italic"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="18dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/inter_light_italic"
+                            android:text=" тренировок с"
+                            android:textColor="@color/black"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="45dp"
+                        android:fontFamily="@font/inter_light_italic"
+                        android:text=" подпиской PREMIUM"
+                        android:textColor="@color/black"
+                        android:textSize="18dp" />
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar_wealth"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="265dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="10dp"
+                        android:progress="0"
+                        android:progressBackgroundTint="#DBE3E8"
+                        android:progressDrawable="@drawable/blue_gradient" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/wealth_level_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/inter_light_italic"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:fontFamily="@font/inter_light_italic"
+                            android:text="/"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
+                        <TextView
+                            android:id="@+id/wealth_condition_bar_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:fontFamily="@font/inter_light_italic"
+                            android:text="8"
+                            android:textColor="@color/black"
+                            android:textSize="14dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <!-- СПЕЦИАЛЬНОЕ ДОСТИЖЕНИЕ -->
+
+        </LinearLayout>
+        <!-- ДОСТИЖЕНИЯ КОНЕЦ -->
+        <!-- КНОПКИ НАЧАЛО-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50dp"
+            android:padding="16dp">
+            <TextView
+                android:id="@+id/change_pass"
+                android:layout_marginRight="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:fontFamily="@font/inter"
+                android:lineSpacingExtra="1sp"
+                android:text="Изменить пароль"
+                android:textAlignment="center"
+                android:textColor="#338AF3"
+                android:textSize="12sp"
+                android:layout_weight="1" />
+            <TextView
+                android:id="@+id/exit_acc"
+                android:layout_marginLeft="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:fontFamily="@font/inter"
+                android:lineSpacingExtra="1sp"
+                android:text="Выйти из аккаунта"
+                android:textAlignment="center"
+                android:textColor="#338AF3"
+                android:textSize="12sp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+        <!-- КНОПКИ КОНЕЦ-->
+    </LinearLayout>
+</ScrollView>
