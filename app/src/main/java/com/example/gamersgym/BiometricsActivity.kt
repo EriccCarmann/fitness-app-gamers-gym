@@ -32,7 +32,7 @@ class BiometricsActivity : AppCompatActivity() {
         val radioGroup: RadioGroup = findViewById(R.id.radio_group)
         val button: Button = findViewById(R.id.button_biomerics_add)
 
-        //<editor-fold desc="ИЗМЕНЕНИЕ ТЕКСТА И ПОДСКАЗОК В СЛУЧАЕ НЕПРАВИЛЬНОГО ВВОДА">
+        //<editor-fold desc="CHANGE TEXT AND HINTS IF INPUT IS INCORRECT">
         userWeight.addTextChangedListener{
             userWeight.setTextColor(Color.WHITE)
             weightHint.setText("Введите значение от 35 до 150")
@@ -99,7 +99,7 @@ class BiometricsActivity : AppCompatActivity() {
 
                     db.addBiometrics(bio, login)
 
-                    //<editor-fold desc="СОХРАНЕНИЕ">
+                    //<editor-fold desc="SAVE TO PREFS">
                     var pref = getSharedPreferences("MyPref", Context.MODE_PRIVATE)
                     var editor = pref.edit()
                     editor.putString("USER_LOGIN", login);
@@ -115,41 +115,7 @@ class BiometricsActivity : AppCompatActivity() {
                     dateEditor.apply();
                     //</editor-fold>
 
-                    //<editor-fold desc="ДОБАВЛЕНИЕ КАЛЛОРИЙ-БОЛВАНОК">
-                    db.addCalorie(103f, login)
-                    db.addCalorie(200f, login)
-                    db.addCalorie(190f, login)
-                    db.addCalorie(120f, login)
-                    db.addCalorie(250f, login)
-                    db.addCalorie(304f, login)
-                    db.addCalorie(298f, login)
-                    db.addCalorie(103f, login)
-                    db.addCalorie(200f, login)
-                    db.addCalorie(190f, login)
-                    db.addCalorie(120f, login)
-                    db.addCalorie(250f, login)
-                    db.addCalorie(304f, login)
-                    db.addCalorie(298f, login)
-                    db.addCalorie(103f, login)
-                    db.addCalorie(200f, login)
-                    db.addCalorie(190f, login)
-                    db.addCalorie(120f, login)
-                    db.addCalorie(250f, login)
-                    db.addCalorie(304f, login)
-                    db.addCalorie(298f, login)
-                    db.addCalorie(103f, login)
-                    db.addCalorie(200f, login)
-                    db.addCalorie(190f, login)
-                    db.addCalorie(120f, login)
-                    db.addCalorie(250f, login)
-                    db.addCalorie(304f, login)
-                    db.addCalorie(298f, login)
-                    db.addCalorie(250f, login)
-                    db.addCalorie(304f, login)
-                    db.addCalorie(298f, login)
-                    //</editor-fold>
-
-                    //<editor-fold desc="ДОБАВЛЕНИЕ АЧИВОК">
+                    //<editor-fold desc="ADDING ACHIEVEMENTS">
                     db.addAchievement(
                         Achievement("MoreWorkouts", 0, 8, 10, 2),
                         login
@@ -176,7 +142,7 @@ class BiometricsActivity : AppCompatActivity() {
                     )
                     //</editor-fold>
 
-                    //<editor-fold desc="ДОБАВЛЕНИЕ ЗАДАНИЙ">
+                    //<editor-fold desc="ADDING TASKS">
                     db.addTask(
                         Task("BurnCalories", 1000, 5),
                         login
@@ -195,7 +161,7 @@ class BiometricsActivity : AppCompatActivity() {
                     )
                     //</editor-fold>
 
-                    //<editor-fold desc="ДОБАВЛЕНИЕ УПРАЖНЕНИЙ">
+                    //<editor-fold desc="ADDING EXERCISES">
                     db.addExercise(Exercise(
                         "jump", "Прыжки", 5.5))
                     db.addExercise(Exercise(

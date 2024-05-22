@@ -2,7 +2,6 @@ package com.example.gamersgym.Fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.widget.doAfterTextChanged
-import androidx.core.widget.doBeforeTextChanged
 import com.example.gamersgym.Exercises.ExercisesDescription
 import com.example.gamersgym.R
 
@@ -33,7 +31,7 @@ class Exercises : Fragment() {
 
         val exercisesList: MutableList<TextView> = mutableListOf()
 
-        //<editor-fold desc="ПОЛУЧЕНИЕ">
+        //<editor-fold desc="VARIABLES">
         val search = view.findViewById<EditText>(R.id.search)
 
         val alpinist = view.findViewById<TextView>(R.id.alpinist)
@@ -117,7 +115,7 @@ class Exercises : Fragment() {
             startActivity(intent)
         }
 
-        //<editor-fold desc="ПЕРЕНОС">
+        //<editor-fold desc="SHOW EXERCISE">
         alpinist.setOnClickListener {
             ShowExercise("Alpinist")
         }

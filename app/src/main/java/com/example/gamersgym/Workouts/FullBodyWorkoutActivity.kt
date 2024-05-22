@@ -24,7 +24,7 @@ class FullBodyWorkoutActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_full_body_workout)
 
-        //<editor-fold desc="ПЕРЕМЕННЫЕ">
+        //<editor-fold desc="VARIABLES">
         val secondText = findViewById<TextView>(R.id.text2)
         val thirdText = findViewById<TextView>(R.id.text3)
 
@@ -38,11 +38,22 @@ class FullBodyWorkoutActivity : AppCompatActivity() {
         var dayIsChosen = false
         //</editor-fold>
 
+        //<editor-fold desc="DAYS">
+        val day1 = findViewById<TextView>(R.id.day1)
+        val day2 = findViewById<TextView>(R.id.day2)
+        val day3 = findViewById<TextView>(R.id.day3)
+        val day4 = findViewById<TextView>(R.id.day4)
+        val day5 = findViewById<TextView>(R.id.day5)
+        val day6 = findViewById<TextView>(R.id.day6)
+        val day7 = findViewById<TextView>(R.id.day7)
+
+        val days: List<TextView> = mutableListOf(day1, day2, day3, day4, day5, day6, day7)
+        //</editor-fold>
+
         fun ChooseDay(day: TextView, days: List<TextView>, index: Int): Int{
 
             val params = day.layoutParams
 
-            //ПРОВЕРКА РАЗМЕРА НЫНЕШНЕЙ КНОПКИ
             if(params.height == 80){
                 params.height = 110
                 params.width = 110
@@ -63,7 +74,6 @@ class FullBodyWorkoutActivity : AppCompatActivity() {
 
                 return 0
             }
-            //ПРОВЕРКА РАЗМЕРА НЫНЕШНЕЙ КНОПКИ
 
             //УМЕНЬШЕНИЕ ОСТАЛЬНЫХ КНОПОК
             for(i in 0..6){
@@ -81,19 +91,7 @@ class FullBodyWorkoutActivity : AppCompatActivity() {
             return index
         }
 
-        //<editor-fold desc="ДНИ ПОЛУЧЕНИЕ">
-        val day1 = findViewById<TextView>(R.id.day1)
-        val day2 = findViewById<TextView>(R.id.day2)
-        val day3 = findViewById<TextView>(R.id.day3)
-        val day4 = findViewById<TextView>(R.id.day4)
-        val day5 = findViewById<TextView>(R.id.day5)
-        val day6 = findViewById<TextView>(R.id.day6)
-        val day7 = findViewById<TextView>(R.id.day7)
-
-        val days: List<TextView> = mutableListOf(day1, day2, day3, day4, day5, day6, day7)
-        //</editor-fold>
-
-        //<editor-fold desc="ДОСТУПНЫ ЛИ СЛЕДУЮЩИЕ ДНИ">
+        //<editor-fold desc="CHECK IF THERE IS AN ACCESS TO THE NEXT DAY">
         val daysAccess: List<String> = mutableListOf("DAY_ONE_ACCESS", "DAY_TWO_ACCESS", "DAY_THREE_ACCESS", "DAY_FOUR_ACCESS",
             "DAY_FIVE_ACCESS", "DAY_SIX_ACCESS", "DAY_SEVEN_ACCESS")
 
@@ -120,6 +118,7 @@ class FullBodyWorkoutActivity : AppCompatActivity() {
         }
         //</editor-fold>
 
+        //<editor-fold desc="BUTTONS">
         startWorkout.setOnClickListener {
             if(dayIsChosen){
                 val intent = Intent(this, FullBodyWorkoutExercisesActivity::class.java)
@@ -160,6 +159,7 @@ class FullBodyWorkoutActivity : AppCompatActivity() {
             intent.putExtra("tab", "0")
             startActivity(intent)
         }
+        //</editor-fold>
 
         //<editor-fold desc="HTML">
         secondText.text= Html.fromHtml(

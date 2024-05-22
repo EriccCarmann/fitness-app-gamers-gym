@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -17,7 +16,6 @@ import com.example.gamersgym.CustomDialogueBoxes
 import com.example.gamersgym.DbHelper
 import com.example.gamersgym.R
 import com.example.gamersgym.TabsActivity
-import com.google.android.material.tabs.TabLayout.TabView
 import java.time.LocalDate
 import java.util.Timer
 import java.util.TimerTask
@@ -28,9 +26,9 @@ class WorkoutProcessActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_current_exercise)
 
-        val db = DbHelper(this, null) //ПОЛУЧЕНИЕ БД
+        val db = DbHelper(this, null)
 
-        //<editor-fold desc="ПЕРЕМЕННЫЕ ТЕКУЩИХ УПРАЖНЕНИЙ">
+        //<editor-fold desc="CURRENT EXERCISES VARIABLES">
         val current_image = findViewById<ImageView>(R.id.current_image) //картинка текущего упражнения
         val currentActivity = findViewById<TextView>(R.id.current_activity) //название текущего упражнения
         val rest = findViewById<TextView>(R.id.rest) //надпись "Отдых"
@@ -85,12 +83,12 @@ class WorkoutProcessActivity : AppCompatActivity() {
         )
         //</editor-fold>
 
-        //<editor-fold desc="ПЕРЕМЕННЫЕ ЗАВЕРШЕНИЯ ТРЕНИРОВКИ">
+        //<editor-fold desc="WORKOUT END VARIABLES">
         val endScreen = findViewById<LinearLayout>(R.id.end_screen)
         val finishWorkoutButton = findViewById<Button>(R.id.finish_workout)
         //</editor-fold>
 
-        //<editor-fold desc="ПЕРЕМЕННЫЕ ОБЩЕГО ТАЙМЕРА">
+        //<editor-fold desc="GENERAL TIMER VARIABLES">
         val timer = findViewById<TextView>(R.id.timer)
         val stoptimer = findViewById<ImageView>(R.id.stop_timer)
         var count = 1
@@ -98,7 +96,7 @@ class WorkoutProcessActivity : AppCompatActivity() {
         val T = Timer()
         //</editor-fold>
 
-        //<editor-fold desc="ОБЩИЙ ТАЙМЕР">
+        //<editor-fold desc="GENERAL TIMER">
         T.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 if(isGoing){
@@ -131,7 +129,7 @@ class WorkoutProcessActivity : AppCompatActivity() {
         }, 1000, 1000)
         //</editor-fold>
 
-        //<editor-fold desc="ТАЙМЕР ПРЫЖКОВ И ОТДЫХА">
+        //<editor-fold desc="REST AND JUMP TIMER">
         var tillFinishRest: Long = 11000
         var tillFinishAction: Long = 31000
 
@@ -139,6 +137,7 @@ class WorkoutProcessActivity : AppCompatActivity() {
         var isExercise = false
 
         fun TimerAction(time: Long){
+            canProceed = false
             rest.visibility = (View.INVISIBLE)
             object : CountDownTimer(time, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
@@ -168,7 +167,6 @@ class WorkoutProcessActivity : AppCompatActivity() {
         }
 
         fun TimerRest(time: Long){
-
             if(tillFinishRest.toInt() == 11000){
                 countDownOrReps.setText("00:10")
             }
@@ -196,29 +194,9 @@ class WorkoutProcessActivity : AppCompatActivity() {
         }
 
         TimerRest(tillFinishRest)
-
-        stoptimer.setOnClickListener {
-            if(isExercise == false){
-                isGoing = !isGoing
-
-                if(isGoing){
-                    stoptimer.setImageResource(R.drawable.pause)
-                    if(!restEnded){
-                        TimerRest(tillFinishRest)
-                    }
-                    else{
-                        TimerAction(tillFinishAction)
-                    }
-                }
-                else {
-                    stoptimer.setImageResource(R.drawable.play)
-
-                }
-            }
-        }
         //</editor-fold>
 
-        //<editor-fold desc="МЕТОДЫ ТЕКУЩИХ УПРАЖНЕНИЙ">
+        //<editor-fold desc="CURRENT EXERCISES METHODS">
         fun ResetValues(){
             canProceed = false
             index = 0
@@ -259,10 +237,11 @@ class WorkoutProcessActivity : AppCompatActivity() {
         }
 
         fun RestExercise(repsOrTime: Map<String, Int>, name: String, time: Long){
-
             if(tillFinishRest.toInt() == 11000){
                 countDownOrReps.setText("00:10")
             }
+
+            restEnded = false
 
             //<editor-fold desc="ОТДЫХ + УПРАЖНЕНИЕ">
             object : CountDownTimer(time, 1000) {
@@ -379,7 +358,7 @@ class WorkoutProcessActivity : AppCompatActivity() {
         }
         //</editor-fold>
 
-        //<editor-fold desc="ТРЕНИРОВКИ">
+        //<editor-fold desc="WORKOUTS">
         when(type){
             "fullbody" -> {
                 when(day){
@@ -562,7 +541,26 @@ class WorkoutProcessActivity : AppCompatActivity() {
         }
         //</editor-fold>
 
-        //<editor-fold desc="КНОПКИ">
+        //<editor-fold desc="BUTTONS">
+        stoptimer.setOnClickListener {
+            if(isExercise == false){
+                isGoing = !isGoing
+
+                if(isGoing){
+                    stoptimer.setImageResource(R.drawable.pause)
+                    if(!restEnded){
+                        TimerRest(tillFinishRest)
+                    }
+                    else{
+                        TimerAction(tillFinishAction)
+                    }
+                }
+                else {
+                    stoptimer.setImageResource(R.drawable.play)
+                }
+            }
+        }
+
         finishWorkoutButton.setOnClickListener {
             when(type){
                 "fullbody" -> {

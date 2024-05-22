@@ -1,15 +1,11 @@
 package com.example.gamersgym.Fragments
 
-import android.R.attr.data
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,8 +18,6 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
-import androidx.cardview.widget.CardView
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.example.gamersgym.ChangePasswordActivity
@@ -39,7 +33,6 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import java.text.DecimalFormat
-
 
 class Profile : Fragment() {
     override fun onCreateView(
@@ -60,15 +53,13 @@ class Profile : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val db = activity?.let { DbHelper(it, null) } //ПОЛУЧЕНИЕ БД
+        val db = activity?.let { DbHelper(it, null) }
         val preferences = this.activity?.getSharedPreferences(
             "MyPref",
             MODE_PRIVATE
         )
-        //ПЕРЕМЕННАЯ ДЛЯ ПОЛУЧЕНИЯ ДАННЫХ ИЗ PREFERENCES
-        var editor = preferences?.edit()
 
-        //<editor-fold desc="ПЕРЕМЕННЫЕ">
+        //<editor-fold desc="VARIABLES">
         val login = getTextViewByTag(R.id.user_login_display)
         val maxWeight = getTextViewByTag(R.id.max_weight)
         val minWeight = getTextViewByTag(R.id.min_weight)
@@ -93,7 +84,7 @@ class Profile : Fragment() {
         val login_user = preferences?.getString("USER_LOGIN", "")
         //</editor-fold>
 
-        //<editor-fold desc="ИЗМЕНЕНИЕ РОСТА И ВЕСА">
+        //<editor-fold desc="HEIGHT AND WEIGHT CHANGE">
         val changeHeightButton = view.findViewById<View>(R.id.change_height_button) as Button
         val changeWeightButton = view.findViewById<View>(R.id.change_weight_button) as Button
 
@@ -120,7 +111,7 @@ class Profile : Fragment() {
         }
         //</editor-fold>
 
-        //<editor-fold desc="УРОВЕНЬ ДОСТИЖЕНИЯ">
+        //<editor-fold desc="ACHIEVEMENT LEVEL">
         val moreWorkoutsLevel = getTextViewByTag(R.id.moreworkouts_level)
         val fatBurnerLevel = getTextViewByTag(R.id.fatburner_level)
         val startedFinishedLevel = getTextViewByTag(R.id.startedandfinished_level)
@@ -129,7 +120,7 @@ class Profile : Fragment() {
         val wealthLevel = getTextViewByTag(R.id.wealth_level)
         //</editor-fold>
 
-        //<editor-fold desc="НАГРАДЫ">
+        //<editor-fold desc="REWARDS">
         val moreWorkoutsReward = getTextViewByTag(R.id.more_workouts_reward)
         val fatBurnerReward = getTextViewByTag(R.id.fat_burner_reward)
         val startAndFinishReward = getTextViewByTag(R.id.startnfinish_reward)
@@ -138,7 +129,7 @@ class Profile : Fragment() {
         val wealthReward = getTextViewByTag(R.id.wealth_reward_display)
         //</editor-fold>
 
-        //<editor-fold desc="УСЛОВИЕ ДОСТИЖЕНИЯ">
+        //<editor-fold desc="ACHIEVEMENT CONDITION">
         val moreWorkoutsCondition = getTextViewByTag(R.id.more_workouts_condition)
         val fatBurnerCondition = getTextViewByTag(R.id.fatburner_condition)
         val startedFinishedCondition = getTextViewByTag(R.id.startnfinish_condition)
@@ -147,7 +138,7 @@ class Profile : Fragment() {
         val wealthCondition = getTextViewByTag(R.id.wealth_condition)
         //</editor-fold>
 
-        //<editor-fold desc="ПРОГРЕСС БАР УСЛОВИЕ ДОСТИЖЕНИЯ">
+        //<editor-fold desc="PROGRESS BAR CONDITION">
         val moreWorkoutsBarValue = getTextViewByTag(R.id.needed_workouts_condition_bar_value)
         val haltConditionBarValue = getTextViewByTag(R.id.halt_condition_bar_value)
         val fatBurnerConditionBarValue = getTextViewByTag(R.id.needed_calories_condition_bar_value)
@@ -156,7 +147,7 @@ class Profile : Fragment() {
         val wealthConditionBarValue = getTextViewByTag(R.id.wealth_condition_bar_value)
         //</editor-fold>
 
-        //<editor-fold desc="ПРОГРЕСС БАР">
+        //<editor-fold desc="PROGRESS BAR">
         val progressBarMoreWorkouts = view.findViewById<View>(R.id.progress_bar_more_workouts) as ProgressBar
         val progressBarFatburner = view.findViewById<View>(R.id.progress_bar_fatburner) as ProgressBar
         val progressBarStartnfinish = view.findViewById<View>(R.id.progress_bar_startnfinish) as ProgressBar
@@ -165,7 +156,7 @@ class Profile : Fragment() {
         val progressBarWealth = view.findViewById<View>(R.id.progress_bar_wealth) as ProgressBar
         //</editor-fold>
 
-        //<editor-fold desc="ТЕКУЩИЕ ОЧКИ ДОСТИЖЕНИЯ">
+        //<editor-fold desc="CURRENT ACHIEVEMENT POINTS">
         val currentWorkoutsCount = getTextViewByTag(R.id.current_workouts_count)
         val currentСalorieСount = getTextViewByTag(R.id.current_calorie_count)
         val currentTasksCount = getTextViewByTag(R.id.current_tasks_count)
@@ -176,7 +167,7 @@ class Profile : Fragment() {
 
 
         if (db != null) {
-            //<editor-fold desc="ТЕКУЩИЙ УРОВЕНЬ ДОСТИЖЕНИЯ">
+            //<editor-fold desc="CURRENT ACHIEVEMENT LEVEL">
             moreWorkoutsLevel!!.text =
                 login_user?.let { db.getCurrentAchievementLevel("MoreWorkouts", it).toString() }
 
@@ -196,7 +187,7 @@ class Profile : Fragment() {
                 login_user?.let { db.getCurrentAchievementLevel("Wealth", it).toString() }
             //</editor-fold>
 
-            //<editor-fold desc="ТЕКУЩИЕ ОЧКИ">
+            //<editor-fold desc="CURRENTS ACHIEVEMENT POINTS">
             currentWorkoutsCount!!.text =
                 login_user?.let { db.getCurrentPointsAchievement("MoreWorkouts", it).toString() }
             currentСalorieСount!!.text =
@@ -211,7 +202,7 @@ class Profile : Fragment() {
                 login_user?.let { db.getCurrentPointsAchievement("Wealth", it).toString() }
             //</editor-fold>
 
-            //<editor-fold desc="УСЛОВИЯ ПОЛУЧЕНИЯ ДОСТИЖЕНИЯ">
+            //<editor-fold desc="ACHIEVEMENT CONDITION">
             moreWorkoutsCondition!!.text = login_user?.let { db.getAchievementCondition("MoreWorkouts", it).toString() }
             moreWorkoutsBarValue!!.text = moreWorkoutsCondition.text
 
@@ -231,7 +222,7 @@ class Profile : Fragment() {
             wealthConditionBarValue!!.text = wealthCondition.text
             //</editor-fold>
 
-            //<editor-fold desc="НАГРАДЫ">
+            //<editor-fold desc="REWARDS">
             moreWorkoutsReward!!.text = login_user?.let { db.getAchievementReward("MoreWorkouts", it).toString() }
             fatBurnerReward!!.text = login_user?.let { db.getAchievementReward("FatBurner", it).toString() }
             startAndFinishReward!!.text = login_user?.let { db.getAchievementReward("StartedAndFinished", it).toString() }
@@ -241,7 +232,7 @@ class Profile : Fragment() {
             //</editor-fold>
         }
 
-        //<editor-fold desc="ПРОГРЕСС БАР">
+        //<editor-fold desc="PROGRESS BAR">
         fun CountPercenrage(current: Int, needed: Int): Int{
             return (current * 100).div(needed)
         }
@@ -265,7 +256,7 @@ class Profile : Fragment() {
         )
         //</editor-fold>
 
-        //<editor-fold desc="РАЗВЕРНУТЬ ДОСТИЖЕНИЯ">
+        //<editor-fold desc="EXPAND ACHIEVEMENTS">
         val moreWorkouts = view.findViewById<View>(R.id.more_workouts) as LinearLayout
         val fatBurner = view.findViewById<View>(R.id.fat_burner) as LinearLayout
         val startedAndFinished = view.findViewById<View>(R.id.started_and_finished) as LinearLayout
@@ -297,7 +288,7 @@ class Profile : Fragment() {
         }
         //</editor-fold>
 
-        //<editor-fold desc="ВЫХОД ИЗ АККАУНТА И ИЗМЕНЕНИЕ ПАРОЛЯ">
+        //<editor-fold desc="LOG OUT AND PASSWORD CHANGE">
         exit!!.setOnClickListener {
             val editor = preferences?.edit()
             if (editor != null) {
@@ -318,14 +309,14 @@ class Profile : Fragment() {
         }
         //</editor-fold>
 
-        //<editor-fold desc="СЕТТЕР ДАТЫ НАЧАЛА И КАЛЛОРИЙ">
+        //<editor-fold desc="SET START DATE AND CALORIES">
         if (db != null) {
             startDate!!.text = login_user?.let { db.getRegDate(it) }
         }
         val cals = login_user?.let { db?.getCalorie(it) }
         //</editor-fold">
 
-        //<editor-fold desc="ИМС">
+        //<editor-fold desc="BMI">
         fun CalculateBMI(){
             val bmiOffsets: List<Int> = mutableListOf(0, 10, 44, 115, 177, 237, 300, 325)
             val weightFormulaElem = login_user?.let { db?.getWeightByLogin(it)}?.toFloat()
@@ -437,7 +428,7 @@ class Profile : Fragment() {
         }
         //</editor-fold>
 
-        //<editor-fold desc="ГРАФИК">
+        //<editor-fold desc="CHART">
         fun AddDays(maxDays: Int): List<String> {
             val daysList: MutableList<String> = mutableListOf()
 
@@ -553,7 +544,6 @@ class Profile : Fragment() {
         }
     }
 
-    @SuppressLint("DiscouragedApi")
     fun getTextViewByTag(tag: Int): TextView?{
         val resourceId = resources.getIdentifier(tag.toString(), "id", context?.packageName)
         return view?.findViewById(resourceId)
